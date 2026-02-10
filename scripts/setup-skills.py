@@ -202,7 +202,7 @@ SKILLS = [
     {
         "name": "webapp-testing",
         "title": "Webapp Testing",
-        "description": "用 Playwright 测试本地 Web 应用，验证前端功能、调试 UI 行为、抓取截图。",
+        "description": "用 Playwright 测试测试本地 Web 应用，验证前端功能、调试 UI 行为、抓取截图。",
         "repo_url": "https://github.com/ComposioHQ/awesome-claude-skills",
         "repo_path": "blob/master/webapp-testing",
         "category": "testing",
@@ -210,24 +210,10 @@ SKILLS = [
 ]
 
 
-def create_skill_structure(skill_path: Path) -> None:
-    """Create the standard skill directory structure."""
-    # Create subdirectories
-    (skill_path / "references").mkdir(exist_ok=True)
-    (skill_path / "scripts").mkdir(exist_ok=True)
-
-    # Create a .gitkeep in empty directories
-    (skill_path / "references" / ".gitkeep").touch()
-    (skill_path / "scripts" / ".gitkeep").touch()
-
-
 def create_skill(skill_data: dict) -> Path:
     """Create a skill directory with its configuration files."""
     skill_path = SKILLS_DIR / skill_data["name"]
     skill_path.mkdir(exist_ok=True)
-
-    # Create directory structure
-    create_skill_structure(skill_path)
 
     # Build GitHub URL
     base_url = skill_data["repo_url"]
@@ -253,14 +239,6 @@ repoUrl: {full_url}
 ## 类别
 
 `{skill_data["category"]}`
-
-## 说明
-
-此技能的完整内容需要从官方仓库获取。运行以下命令下载完整技能：
-
-```bash
-python scripts/download-skill.py {skill_data["name"]}
-```
 """
 
     skill_md_path = skill_path / "skill.md"
@@ -283,8 +261,7 @@ def main():
     print(f"Skills setup complete! Created {created_count} skills")
     print(f"Location: {SKILLS_DIR}")
     print("=" * 50)
-    print("\nNote: Each skill now has references/ and scripts/ directories.")
-    print("Use 'python scripts/download-skill.py <skill-name>' to download full content.")
+    print("\nNote: Run 'python scripts/download-skill.py <skill-name>' to download full content.")
 
 
 if __name__ == "__main__":
