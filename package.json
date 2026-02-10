@@ -1,0 +1,21 @@
+{
+  "name": "claude-code-dev-skills",
+  "version": "1.0.0",
+  "description": "常用 Claude Code 开发技能包",
+  "scripts": {
+    "setup": "python scripts/setup-skills.py",
+    "install": "node scripts/install.js",
+    "install:win": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
+    "install:unix": "bash scripts/install.sh",
+    "uninstall:win": "powershell -ExecutionPolicy Bypass -File scripts/uninstall.ps1",
+    "uninstall:unix": "bash scripts/uninstall.sh"
+  },
+  "keywords": [
+    "claude-code",
+    "skills",
+    "ai",
+    "development"
+  ],
+  "author": "",
+  "license": "MIT"
+}
